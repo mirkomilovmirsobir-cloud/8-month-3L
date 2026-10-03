@@ -1,0 +1,228 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Inter", sans-serif;
+        background-color: #0b0d17;
+        background-image:
+          radial-gradient(
+            circle at 20% 0%,
+            rgba(108, 92, 231, 0.2),
+            transparent 40%
+          ),
+          radial-gradient(
+            circle at 85% 10%,
+            rgba(0, 210, 255, 0.14),
+            transparent 35%
+          );
+        background-repeat: no-repeat;
+        color: #e8eaf6;
+        min-height: 100vh;
+        padding: 0 20px 80px;
+      }
+
+      /* ---------- FORM ---------- */
+      form {
+        display: flex;
+        gap: 8px;
+        max-width: 640px;
+        margin: 60px auto 40px;
+        padding: 8px;
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 16px;
+        backdrop-filter: blur(10px);
+        transition:
+          border-color 0.25s,
+          box-shadow 0.25s;
+      }
+
+      form:focus-within {
+        border-color: #6c5ce7;
+        box-shadow: 0 0 0 4px rgba(108, 92, 231, 0.25);
+      }
+
+      input {
+        flex: 1;
+        background: transparent;
+        border: none;
+        outline: none;
+        color: #e8eaf6;
+        font-size: 1rem;
+        font-family: inherit;
+        padding: 12px 14px;
+      }
+
+      input::placeholder {
+        color: #8b92b8;
+      }
+
+      button {
+        border: none;
+        cursor: pointer;
+        padding: 0 28px;
+        border-radius: 12px;
+        font-size: 0.95rem;
+        font-weight: 600;
+        font-family: inherit;
+        color: #fff;
+        background: linear-gradient(135deg, #6c5ce7, #8e7bff);
+        transition:
+          transform 0.2s,
+          box-shadow 0.2s;
+      }
+
+      button:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 8px 20px rgba(108, 92, 231, 0.45);
+      }
+
+      /* ---------- LIST ---------- */
+      .js-list {
+        list-style: none;
+        max-width: 1280px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 22px;
+      }
+
+      /* ---------- CARD ---------- */
+      li {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        padding-bottom: 18px;
+        background: #141829;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 20px;
+        overflow: hidden;
+        transition:
+          transform 0.3s,
+          border-color 0.3s,
+          background 0.3s,
+          box-shadow 0.3s;
+        animation: fadeUp 0.5s ease both;
+      }
+
+      li:hover {
+        transform: translateY(-6px);
+        background: #1a1f36;
+        border-color: rgba(108, 92, 231, 0.55);
+        box-shadow: 0 18px 40px rgba(0, 0, 0, 0.45);
+      }
+
+      li img {
+        width: 100%;
+        height: 200px;
+        object-fit: contain;
+        background: #fff;
+        padding: 16px;
+        transition: transform 0.4s;
+      }
+
+      li:hover img {
+        transform: scale(1.05);
+      }
+
+      li h3 {
+        padding: 6px 18px 0;
+        font-size: 1.02rem;
+        font-weight: 700;
+        line-height: 1.35;
+      }
+
+      li p {
+        padding: 0 18px;
+      }
+
+      /* 1-p: kategoriya | brend */
+      li p:nth-of-type(1) {
+        font-size: 0.8rem;
+        font-weight: 600;
+        color: #00d2ff;
+      }
+
+      /* 2-p: omborda bor / tugagan */
+      li p:nth-of-type(2) {
+        font-size: 0.82rem;
+        color: #8b92b8;
+      }
+
+      /* 3-p: narx */
+      li p:nth-of-type(3) {
+        margin-top: auto;
+        padding-top: 14px;
+        margin-left: 18px;
+        margin-right: 18px;
+        padding-left: 0;
+        padding-right: 0;
+        border-top: 1px solid rgba(255, 255, 255, 0.08);
+        font-size: 1.15rem;
+        font-weight: 800;
+      }
+
+      /* id raqami */
+      li mark {
+        position: absolute;
+        top: 12px;
+        right: 12px;
+        background: rgba(11, 13, 23, 0.85);
+        color: #fff;
+        font-size: 0.75rem;
+        font-weight: 600;
+        padding: 5px 10px;
+        border-radius: 8px;
+      }
+
+      @keyframes fadeUp {
+        from {
+          opacity: 0;
+          transform: translateY(16px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @media (max-width: 520px) {
+        form {
+          margin-top: 36px;
+        }
+        button {
+          padding: 0 18px;
+        }
+        .js-list {
+          grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+          gap: 14px;
+        }
+        li img {
+          height: 150px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <form action="">
+      <input type="text" placeholder="Electronic" />
+      <button>qidirish</button>
+    </form>
+
+    <ul class="js-list"></ul>
+
+    <script src="./electronics.js"></script>
+    <script src="./main.js"></script>
+  </body>
+</html>
